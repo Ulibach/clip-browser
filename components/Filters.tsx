@@ -4,18 +4,7 @@ import useStore from '../store/useStore';
 
 
 
-interface FiltersProps {
-}
-export interface Item {
-        label: string;
-        value: string;
-      }
-      const streamers = [
-        {value: "zxcursed"},
-        {value: "Asmongold"}
-      ];
-
-const Filters: React.FC<FiltersProps> = ({}) => {      
+const Filters: React.FC = ({}) => {      
       const setFilters = useStore(store => store.setFilters)
       const filters = useStore(store => store.filters)
       const [channel, setChannel] = useState<string>()

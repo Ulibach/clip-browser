@@ -17,11 +17,7 @@ const ClipContainer: React.FC = ({}) => {
     const filters = useStore(store => store.filters)
     const {
       data,
-      error,
       fetchNextPage,
-      hasNextPage,
-      isFetching,
-      isFetchingNextPage,
       status,
     } = useInfiniteQuery('clips', async ({pageParam}) => {
       console.log(pageParam)

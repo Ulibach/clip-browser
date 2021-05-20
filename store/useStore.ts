@@ -13,7 +13,7 @@ type State = {
 
 
 
-const useStore = create<State>((set: any) => ({
+const useStore = create<State>(set => ({
     clip: null,
     filters: {period: 'day'},
     channel: '',
