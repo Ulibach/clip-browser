@@ -1,17 +1,12 @@
-import { GetTopClipsQueryVariables, OldClip } from "frontend/generated/graphql";
 import create from "zustand";
 type State = {
   modal: string;
-  clip: OldClip | null;
-  filters: GetTopClipsQueryVariables | {};
+  clip: any;
+  filters: {};
   channel: string;
   game: string;
-  setRegisterModal: () => void;
-  setLoginModal: () => void;
-  closeModal: () => void;
-  selectClip: (clip: OldClip) => void;
-  setGoogleModal: () => void;
-  setFilters: ({}: GetTopClipsQueryVariables) => void;
+  selectClip: (clip: any) => void;
+  setFilters: ({}: any) => void;
   selectChannel: (channel: string) => void;
   GameFilter: (game: string) => void;
 }
@@ -19,16 +14,12 @@ type State = {
 
 
 
-const useStore = create<State>(set => ({
+const useStore = create<State>((set: any) => ({
     modal: '',
     clip: null,
     filters: {period: 'day'},
     channel: '',
     game: '',
-    setRegisterModal: () => set((state) => ({...state, modal: 'register'})),
-    setLoginModal: () => set((state) => ({...state, modal: 'login'})),
-    setGoogleModal: () => set((state) => ({...state, modal: 'google'})),
-    closeModal: () => set(() => ({modal: ''})),
     selectClip: clip => set(state => ({...state,clip})),
     setFilters : f => set(state => ({...state, filters: f})),
     selectChannel: channel => set(state => ({...state, channel})),
