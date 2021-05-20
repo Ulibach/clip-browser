@@ -21,8 +21,7 @@ const ClipContainer: React.FC = ({}) => {
       status,
     } = useInfiniteQuery('clips', async ({pageParam}) => {
       console.log(pageParam)
-      const q = qs.stringify({...filters, pageParam})
-      console.log('trying to fetch...')
+      const q = qs.stringify({...filters, cursor: pageParam})
       const data = await axios({
           method: 'GET',
           url: `https://api.twitch.tv/kraken/clips/top?${q}`,
@@ -36,7 +35,6 @@ const ClipContainer: React.FC = ({}) => {
   
     }, {
       getNextPageParam: (lastPage, pages) => {
-        console.log(lastPage)
         return lastPage._cursor
       },
     })

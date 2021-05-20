@@ -9,7 +9,6 @@ interface ClipProps {
 
 const Clip: React.FC<ClipProps> = ({clip, click, viewed}) => {
     const game = useStore(store => store.game)
-    console.log(clip)
     const styles = {
         opacity: viewed ? 0.35 : 1,
         display: game == clip.game ? 'none' : 'block'
