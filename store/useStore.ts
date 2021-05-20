@@ -1,6 +1,5 @@
 import create from "zustand";
 type State = {
-  modal: string;
   clip: any;
   filters: {};
   channel: string;
@@ -15,7 +14,6 @@ type State = {
 
 
 const useStore = create<State>((set: any) => ({
-    modal: '',
     clip: null,
     filters: {period: 'day'},
     channel: '',
