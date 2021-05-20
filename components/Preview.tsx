@@ -97,7 +97,7 @@ const Preview: React.FC<PreviewProps> = ({clip}) => {
                                 <div>
                     <div className="row">
                         <div className="col-6">
-                <Input ref={InputRef}  placeholder="Upload title" defaultValue={title}></Input>
+                <Input ref={InputRef}  placeholder="Clip Title" defaultValue={title}></Input>
                         </div>
                         <div className="row">
                             <div className="col-6 mt-3">
