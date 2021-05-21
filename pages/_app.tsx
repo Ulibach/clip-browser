@@ -4,15 +4,10 @@ import Layout from '../components/Layout';
 import '../styles/globals.scss'
 import { ChakraProvider } from '@chakra-ui/react'
 import theme from '../theme/theme'
-import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import useStore from '../store/useStore';
+import { QueryClient, QueryClientProvider } from 'react-query'
 function MyApp({ Component, pageProps }: AppProps) {
 
   const queryClient = new QueryClient()
-  const filters = useStore(store => store.filters)
-  useEffect(() => {
-    queryClient.invalidateQueries()
-  }, [filters])
 
   return(
     <>

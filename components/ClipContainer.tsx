@@ -6,7 +6,7 @@ import useStore from '../store/useStore';
 import {useInfiniteQuery} from 'react-query'
 import qs from 'query-string'
 import axios from 'axios';
-
+import {useQueryCache} from 'react-query'
 interface Response {
   clips: any[],
   _cursor: string
@@ -15,12 +15,17 @@ interface Response {
 const ClipContainer: React.FC = ({}) => {
 
     const filters = useStore(store => store.filters)
+
+
+    useEffect(() => {
+      refetch()
+    }, [filters])
     const {
       data,
       fetchNextPage,
+      refetch,
       status,
     } = useInfiniteQuery('clips', async ({pageParam}) => {
-      console.log(pageParam)
       const q = qs.stringify({...filters, cursor: pageParam})
       const data = await axios({
           method: 'GET',
